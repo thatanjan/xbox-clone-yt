@@ -5,12 +5,18 @@ import {
 	HamburgerIcon,
 	MsLogoContainer,
 	MsLogo,
+	XboxLogo,
 	SearchIcon,
 	CartIcon,
 	AccountIcon,
 } from './Header.styles'
 
 import Navigation from 'components/Navigation/Navigation'
+
+import {
+	NavigationOnBigScreen,
+	HamburgerNavigation,
+} from 'components/Navigation/Navigation.styles'
 
 const NavigationContainer = () => {
 	const [open, setOpen] = useState(false)
@@ -19,7 +25,9 @@ const NavigationContainer = () => {
 		<>
 			<HamburgerIcon open={open} onClick={() => setOpen((prev) => !prev)} />
 
-			{open && <Navigation onClose={() => setOpen(false)} />}
+			{open && (
+				<Navigation Parent={HamburgerNavigation} onClose={() => setOpen(false)} />
+			)}
 		</>
 	)
 }
@@ -32,6 +40,10 @@ const Header = () => {
 			<MsLogoContainer>
 				<MsLogo />
 			</MsLogoContainer>
+
+			<XboxLogo />
+
+			<Navigation Parent={NavigationOnBigScreen} />
 
 			<SearchIcon />
 

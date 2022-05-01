@@ -14,15 +14,15 @@ const navLinks = [
 	'Developers',
 ]
 
-const Index = () => {
+const Index = ({ Parent }) => {
 	return (
-		<Navigation>
+		<Parent>
 			{navLinks.map((link) => (
 				<NavLink key={nanoid()} href='/'>
 					{link}
 				</NavLink>
 			))}
-		</Navigation>
+		</Parent>
 	)
 }
 

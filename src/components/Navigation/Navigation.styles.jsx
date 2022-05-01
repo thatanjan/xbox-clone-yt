@@ -1,15 +1,6 @@
 import styled from 'styled-components'
 
-export const Navigation = styled.nav`
-	display: flex;
-	flex-direction: column;
-	position: absolute;
-	top: 100%;
-	left: 0;
-	background-color: #fafafa;
-	z-index: 1;
-	width: 100%;
-`
+import { breakPoints } from 'globalVars'
 
 export const NavLink = styled.a`
 	padding: 1.4rem 2.4rem 1.5rem 1.5rem;
@@ -20,5 +11,32 @@ export const NavLink = styled.a`
 
 	&:hover {
 		text-decoration: underline;
+	}
+`
+
+export const HamburgerNavigation = styled.nav`
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: #fafafa;
+	z-index: 5;
+	width: 100%;
+`
+
+export const NavigationOnBigScreen = styled(HamburgerNavigation)`
+	display: none;
+
+	${NavLink} {
+		border: none;
+	}
+
+	${breakPoints.lg} {
+		position: static;
+		display: flex;
+		flex-direction: row;
+		padding-left: 3rem;
+		flex-grow: 1;
 	}
 `

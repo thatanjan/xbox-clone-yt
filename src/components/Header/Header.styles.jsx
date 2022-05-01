@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 
-import searchIcon from 'media/icons/search.png'
 import msLogo from 'media/icons/microsoft_logo.png'
+import xboxLogo from 'media/icons/xbox_20.png'
+
+import searchIcon from 'media/icons/search.png'
 import hamburgerIcon from 'media/icons/hamburger.png'
 import cartIcon from 'media/icons/cart.png'
 import accountIcon from 'media/icons/account.svg'
 import closeIcon from 'media/icons/close.png'
+
+import { breakPoints } from 'globalVars'
 
 export const HeaderContainer = styled.header`
 	height: 6rem;
@@ -13,6 +17,10 @@ export const HeaderContainer = styled.header`
 	display: flex;
 	align-items: center;
 	position: relative;
+
+	${breakPoints.xl} {
+		padding: 0 10rem;
+	}
 `
 
 export const HeaderBaseIcon = styled.img`
@@ -28,16 +36,35 @@ export const HamburgerIcon = styled(HeaderBaseIcon).attrs((props) => ({
 	object-fit: cover;
 	margin-left: 1rem;
 	opacity: 0.6;
+
+	${breakPoints.lg} {
+		display: none;
+	}
 `
 
 export const MsLogoContainer = styled.div`
 	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+
+	${breakPoints.lg} {
+		display: block;
+		flex-grow: 0;
+		margin: 0 2rem;
+	}
 `
 
 export const MsLogo = styled.img.attrs({
 	src: msLogo,
 })`
 	width: 10rem;
+	height: auto;
+`
+
+export const XboxLogo = styled.img.attrs({
+	src: xboxLogo,
+})`
+	width: 7.5rem;
 	height: auto;
 `
 
